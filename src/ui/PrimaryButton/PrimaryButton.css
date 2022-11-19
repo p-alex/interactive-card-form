@@ -1,0 +1,9 @@
+.primaryButton {
+  display: block;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: hsl(278, 68%, 11%);
+  color: white;
+  cursor: pointer;
+}

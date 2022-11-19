@@ -1,0 +1,156 @@
+.cards {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.card {
+  position: relative;
+  width: 450px;
+  height: 248px;
+  aspect-ratio: 1.8122;
+  border-radius: 10px;
+  box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+}
+
+.cardFront {
+  background-image: url('/images/bg-card-front.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+  color: white;
+  letter-spacing: 2px;
+  align-self: flex-start;
+}
+
+.cardFront__code {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  font-size: 1.65rem;
+  letter-spacing: 3px;
+  width: 100%;
+}
+
+.cardFront__details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.cardFront__name {
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.cardBack {
+  background-image: url('/images/bg-card-back.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  color: white;
+  letter-spacing: 2px;
+  margin-left: 100px;
+}
+
+.cardBack__cvc {
+  position: relative;
+  width: 100%;
+  padding: 10px 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1rem;
+  top: -1px;
+}
+
+@media (max-width: 1260px) {
+  .cards {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 390px;
+  }
+  .cardFront {
+    position: absolute;
+    top: 288px;
+    transform: translateY(-148px);
+    z-index: 1;
+  }
+}
+
+@media (max-width: 610px) {
+  .cards {
+    height: 252px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .cardFront {
+    position: absolute;
+    width: 290px;
+    height: 160px;
+    padding: 20px;
+    top: 238px;
+    z-index: 1;
+  }
+  .cardFront__logo {
+    width: 50px;
+    height: 27px;
+  }
+  .cardFront__code {
+    font-size: 1rem;
+  }
+  .cardFront__details {
+    font-size: 0.8rem;
+    font-weight: normal;
+  }
+  .cardBack {
+    width: 290px;
+    height: 160px;
+    margin-left: 50px;
+  }
+  .cardBack__cvc {
+    padding: 10px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 365px) {
+  .cards {
+    height: 190px;
+  }
+  .cardFront {
+    position: absolute;
+    width: 250px;
+    height: 137px;
+    top: 226px;
+    gap: 7px;
+    padding: 15px;
+  }
+  .cardFront__logo {
+    width: 30px;
+    height: 17px;
+  }
+  .cardFront__code {
+    font-size: 0.75rem;
+  }
+  .cardFront__details {
+    font-size: 0.75rem;
+  }
+  .cardBack {
+    width: 250px;
+    height: 137px;
+    margin-left: 10px;
+  }
+}

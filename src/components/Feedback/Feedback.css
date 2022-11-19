@@ -1,0 +1,32 @@
+.feedback {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  letter-spacing: 2px;
+  text-align: center;
+  animation: scaleIn 300ms;
+}
+
+.feedback__icon {
+  margin: 0 auto 30px auto;
+}
+
+.feedback__title {
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+.feedback__message {
+  margin-bottom: 45px;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

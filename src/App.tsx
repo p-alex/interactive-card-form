@@ -1,34 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import './App.css';
+import Form from './components/Form/Form';
+import Cards from './containers/Cards/Cards';
+import { FormInput } from './utils/validateForm';
+import useForm from './hooks/useForm';
 
-function App() {
-  const [count, setCount] = useState(0)
+export type ErrorsType = { [Property in keyof FormInput]: string[] };
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+export interface IState {
+  name: string;
+  number: string;
+  month: string;
+  year: string;
+  cvc: string;
 }
 
-export default App
+function App() {
+  const { state, setState, handleSubmit, errors, isSuccess, handleReset } = useForm();
+  return (
+    <main className="main">
+      <picture className="main__bgContainer">
+        <source media="(min-width:1260px)" srcSet="/images/bg-main-desktop.png" />
+        <source media="(min-width:0px)" srcSet="/images/bg-main-mobile.png" />
+        <img className="main__bg" src="/images/bg-main-mobile.png" alt="" />
+      </picture>
+      <div className="main__container">
+        <Cards
+          name={state.name}
+          number={state.number}
+          month={state.month}
+          year={state.year}
+          cvc={state.cvc}
+        />
+        <Form
+          state={state}
+          setState={setState}
+          handleSubmit={handleSubmit}
+          handleReset={handleReset}
+          errors={errors}
+          isSuccess={isSuccess}
+        />
+      </div>
+    </main>
+  );
+}
+
+export default App;
